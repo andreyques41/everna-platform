@@ -17,7 +17,7 @@ The platform puts that whole process behind one system:
 - a **public website** and **internal management panel** for leads, quotes, pricing and roadmap;
 - a **client portal** for system monitoring;
 - a **drone and photogrammetry pipeline** that measures roofs from photos;
-- an **agent layer** (Claude Code agents and skills, a Slack bot) used to operate and extend the system.
+- an **agent layer** (custom agents, reusable skills and a Slack-connected agent) used to operate and extend the system.
 
 ## Numbers (counted from the repository)
 
@@ -64,7 +64,7 @@ flowchart LR
 
 ## The engine
 
-The core of the system is a **deterministic, staged calculation engine**: demand → sizing → conductors → conduit → losses → battery → tariff and billing → pricing → surplus. Every result can be traced and reproduced, so a price is never "what a model said".
+The core of the system is a **deterministic, staged calculation engine**: demand → sizing → conductors → conduit → losses → battery → tariff and billing → pricing → surplus. Every result can be traced and reproduced, which makes the numbers auditable end to end.
 
 - Sizing follows **NEC 2020** and local tariff structures; yield uses **PVGIS** data.
 - Outputs: client PDF, DXF drawing sheets, calculation memo and partner report.
@@ -82,15 +82,17 @@ Mission planning for a consumer drone, photo processing with WebODM, georeferenc
 - **Data safety:** transactional migrations with a prior backup and a `schema_migrations` ledger; a disposable Postgres to test RLS.
 - **Documentation as code:** a plan with status and hand-off for each feature, and a checker that keeps docs consistent with the code.
 
-## AI-assisted engineering
+## AI-native engineering capabilities
 
-The product itself contains **no LLM at runtime**: pricing and engineering results come from the deterministic engine, so they are auditable. AI is used as an **engineering tool**:
+The system was built with an agent-first workflow, which required these capabilities:
 
-- Development with **Claude Code** and **GitHub Copilot** in parallel worktrees, one pull request per change.
-- Context engineering: repository rules (`CLAUDE.md`), a sourced knowledge base, and written plans agents can pick up.
-- Custom agents (quoting, finance, orchestration) and reusable skills (drone route planning, WebODM processing, quote reports).
-- A Slack bot that runs an agent with identity-based permissions: full environment for the engineer, read-only for others.
-- Guardrails: permission rules, protected branches, secret scanning, and tests as the final judge of generated code.
+- **Agent orchestration:** specialist agents (quoting, finance, orchestration) working in parallel isolated worktrees, one pull request per change, with written plans that carry status and hand-off between sessions.
+- **Context engineering:** versioned repository rules, a sourced domain knowledge base and a single source of truth for catalogs, so agents act on facts instead of guesses.
+- **Reusable skills and tool design:** packaged procedures for drone route planning, photogrammetry processing, quote reporting and data integration.
+- **Agent operations:** a Slack-connected agent with identity-based permissions: full environment for the engineer, read-only for everyone else.
+- **Guardrails and safety:** permission rules, protected branches, a pre-push hook, secret scanning, least-privilege tokens and audit logging.
+- **Verification of generated work:** golden cases, parity and monotonicity tests, end-to-end and visual regression checks; tests make the final call on every change.
+- **Architecture judgment:** deciding where deterministic, auditable logic is the right tool and where automation or agents add leverage.
 
 ## Links
 
