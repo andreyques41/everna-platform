@@ -1,6 +1,6 @@
 # Everna Platform
 
-**The business system of [Everna](https://everna.lat), a solar-installation company in Costa Rica: quoting, engineering design, drone-based site measurement and client portal, built end to end by one engineer.**
+**The business system of [Everna](https://everna.lat/en), a solar-installation company in Costa Rica: quoting, engineering design, drone-based site measurement and client portal, built end to end by one engineer.**
 
 > This repository is a **case study**. The source code is private; this page documents what the system does, how it is built and how it is verified.
 > Everna is co-founded by three engineers. I am the co-founder who designed and built the software.
@@ -96,7 +96,7 @@ The system was built with an agent-first workflow, which required these capabili
 
 ## Links
 
-- Company site: <https://everna.lat>
+- Company site: <https://everna.lat/en>
 - Author: [Andrey Quesada](https://github.com/andreyques41)
 
 ---
