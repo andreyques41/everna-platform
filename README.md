@@ -31,6 +31,10 @@ The platform puts that whole process behind one system:
 
 ## Architecture
 
+<p align="center"><img src="docs/architecture.svg" alt="Architecture: the public site and the platform call the FastAPI routers; the routers use Supabase and the quoting and design engine, which feeds PDF and DXF generation; the drone pipeline and the workers also write to Supabase." width="560"></p>
+
+<details><summary>Diagram source (Mermaid)</summary>
+
 ```mermaid
 flowchart LR
   subgraph Client
@@ -53,6 +57,8 @@ flowchart LR
   D --> DB
   WK --> DB
 ```
+
+</details>
 
 | Layer | Stack |
 |---|---|

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 620" role="img" aria-labelledby="t d" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title id="t">Everna platform architecture</title>
+  <desc id="d">The public site and the platform call the FastAPI routers. The routers read and write Supabase and call the quoting and design engine, which feeds PDF and DXF generation. The drone pipeline and the background workers also write to Supabase.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#f5b942"/>
+    </marker>
+  </defs>
+  <rect width="560" height="620" rx="14" fill="#0f1720"/>
+
+  <!-- groups -->
+  <rect x="30" y="10" width="500" height="118" rx="12" fill="none" stroke="#3a4a5c" stroke-dasharray="5 4"/>
+  <text x="46" y="32" fill="#8ea0b3" font-size="12" font-weight="600">Client</text>
+  <rect x="30" y="160" width="500" height="240" rx="12" fill="none" stroke="#3a4a5c" stroke-dasharray="5 4"/>
+  <text x="46" y="182" fill="#8ea0b3" font-size="12" font-weight="600">API (FastAPI · Railway)</text>
+
+  <!-- edges -->
+  <g fill="none" stroke="#f5b942" stroke-width="1.6" stroke-linejoin="round" marker-end="url(#a)">
+    <path d="M162 110 C162 150 230 150 230 196"/>
+    <path d="M397 110 C397 150 310 150 310 196"/>
+    <path d="M165 221 H42 V472 H55"/>
+    <path d="M375 221 H518 V472 H505"/>
+    <path d="M162 440 V346"/>
+    <path d="M397 374 V440"/>
+    <path d="M397 540 V504"/>
+  </g>
+
+  <!-- nodes -->
+  <g fill="#1b2735" stroke="#4b6178" stroke-width="1.2">
+    <rect x="55" y="46" width="215" height="64" rx="8"/>
+    <rect x="290" y="46" width="215" height="64" rx="8"/>
+    <rect x="165" y="196" width="210" height="50" rx="8"/>
+    <rect x="55" y="290" width="215" height="56" rx="8"/>
+    <rect x="290" y="290" width="215" height="84" rx="8"/>
+    <rect x="55" y="440" width="215" height="64" rx="8"/>
+    <rect x="290" y="440" width="215" height="64" rx="8"/>
+    <rect x="290" y="540" width="215" height="64" rx="8"/>
+  </g>
+  <g fill="#e6edf3" font-size="14" font-weight="600" text-anchor="middle">
+    <text x="162" y="74">Public site</text>
+    <text x="397" y="74">Platform</text>
+    <text x="270" y="226">Routers + auth</text>
+    <text x="162" y="323">PDF / DXF generation</text>
+    <text x="397" y="314">Workers</text>
+    <text x="162" y="468">Quoting &amp; design engine</text>
+    <text x="397" y="468">Supabase</text>
+    <text x="397" y="568">Drone pipeline</text>
+  </g>
+  <g fill="#9fb0c2" font-size="12" text-anchor="middle">
+    <text x="162" y="94">Next.js 16 · React 19</text>
+    <text x="397" y="94">/gestion · /socios · /panel</text>
+    <text x="397" y="334">reminders · retention</text>
+    <text x="397" y="352">inverter polling</text>
+    <text x="162" y="488">deterministic, staged</text>
+    <text x="397" y="488">Postgres · RLS · Auth · Storage</text>
+    <text x="397" y="588">WebODM · OpenCV · Blender</text>
+  </g>
+</svg>
